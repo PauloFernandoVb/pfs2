@@ -1,0 +1,638 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API PFS2",
+    "description": "API que está sendo desenvolvida durante a disciplina de Programação Fullstack II",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/"
+    }
+  ],
+  "paths": {
+    "/usuario/": {
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Retorna todos os usuários cadastrados",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Cadastra um novo usuário",
+        "description": "",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/usuario"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Atualiza um usuário existente",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/usuario"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/usuario/{id}": {
+      "delete": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Exclui um usuário existente",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Usuário"
+        ],
+        "summary": "Retorna um usuário através do ID",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/login/": {
+      "post": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Gerar token de autenticação",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "any"
+                  },
+                  "senha": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/login/usuario": {
+      "get": {
+        "tags": [
+          "Login"
+        ],
+        "summary": "Retorna o usuario logado pela cookie para o front end",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/imovel/disponivel": {
+      "get": {
+        "tags": [
+          "Imóvel"
+        ],
+        "summary": "Lista todos os imóveis disponíveis para locação",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/imovel/": {
+      "get": {
+        "tags": [
+          "Imóvel"
+        ],
+        "summary": "Lista todos os imóveis cadastrados",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Imóvel"
+        ],
+        "summary": "Cadastra um novo imóvel",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/imovel"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Imóvel"
+        ],
+        "summary": "Altera um imóvel existente",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/imovel"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/imovel/{id}": {
+      "get": {
+        "tags": [
+          "Imóvel"
+        ],
+        "summary": "Retorna um imóvel através do id informado",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Imóvel"
+        ],
+        "summary": "Exclui um imóvel existente através do id informado",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/imovel/imagens/{id}": {
+      "get": {
+        "tags": [
+          "Imóvel"
+        ],
+        "summary": "Lista as imagens de um determinado imóvel",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    },
+    "/locacao/": {
+      "post": {
+        "tags": [
+          "Locação"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "idImovel": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Locação"
+        ],
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "jwt": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "erro": {
+        "type": "object",
+        "properties": {
+          "msg": {
+            "type": "string",
+            "example": "Mensagem de erro"
+          }
+        }
+      },
+      "usuario": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 999
+          },
+          "nome": {
+            "type": "string",
+            "example": "Fulano de Tal"
+          },
+          "email": {
+            "type": "string",
+            "example": "fulano@unoeste.br"
+          },
+          "senha": {
+            "type": "string",
+            "example": "123abc"
+          },
+          "ativo": {
+            "type": "boolean",
+            "example": true
+          },
+          "perfil": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number",
+                "example": 1
+              }
+            }
+          }
+        }
+      },
+      "imovel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 999,
+            "required": false
+          },
+          "descricao": {
+            "type": "string",
+            "required": true
+          },
+          "endereco": {
+            "type": "string",
+            "required": true
+          },
+          "cep": {
+            "type": "string",
+            "required": true
+          },
+          "bairro": {
+            "type": "string",
+            "required": true
+          },
+          "cidade": {
+            "type": "string",
+            "required": true
+          },
+          "valor": {
+            "type": "number",
+            "required": true
+          },
+          "disponivel": {
+            "type": "boolean",
+            "required": true
+          },
+          "imagens": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "jwt": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "token",
+        "description": "JWT gerado a partir da autenticação"
+      }
+    }
+  }
+}
