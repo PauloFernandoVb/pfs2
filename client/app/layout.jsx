@@ -18,9 +18,9 @@ export default function RootLayout({ children }) {
       <html lang="pt-br" className={nunito.className}>
 
         <head>
-          <script src="/template/js/jquery.min.js"></script>
-          <script src="/template/js/bootstrap.bundle.min.js"></script>
-          <script src="/template/js/sb-admin-2.min.js"></script>
+          <script async={true} src="/template/js/jquery.min.js"></script>
+          <script async={true} src="/template/js/bootstrap.bundle.min.js"></script>
+          <script async={true} src="/template/js/sb-admin-2.min.js"></script>
         </head>
         <body>
           <div><Toaster></Toaster></div>

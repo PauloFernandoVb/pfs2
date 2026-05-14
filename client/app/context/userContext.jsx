@@ -1,4 +1,14 @@
 'use client'
+// ver a melhor maneira as de criar as pastas e page do next para a estrutura
+
+// ( segunda aula 21:16
+//erros do script do layout
+//21:21 validar navegaçao (começo do audio)
+//midleware para o frontend- do proprio next (PROXY.JS)
+//proxy faz o redirecioamento para a proxima rota
+
+
+//)
 
 import Loading from "../components/loading";
 
@@ -8,9 +18,6 @@ const { createContext, useState, useEffect } = require("react")
 const UserContext = createContext();
 
 //contexto para usar em tdas as telas e armazenar as info do back aqui
-
-
-
 
 //essa funçao (caregarUsuario(){}
 // // )eu pego pelo corpo do body da documentaçao, usando o loginController/loginRouter
